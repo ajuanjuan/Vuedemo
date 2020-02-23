@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../vue.js" ></script>
+	</head>
+	<body>
+		
+		<div id="app">
+			
+			
+		<!--插值表达式-->
+		<div>
+			{{msg}}
+		</div>
+		<!-- v-cloak 可以解决插值表达式闪烁的问题-->
+		<div>
+			<p v-cloak>{{msg}}</p>
+		</div>
+		<!--默认v-text 是没有闪烁问题的-->
+		<!-- v-text会覆盖元素中原本的内容，但是 插值表达式 只会替换自己的这个占位符，不会把整个元素的内容清空-->
+		<div>
+			<p v-text="msg"></p>
+		</div>
+		
+		
+		<div>
+			{{msg2}}
+		</div>
+		<div>
+			<p v-text="msg2"></p>
+		</div>
+		<!-- 能有格式-->
+		<div>
+			<p v-html="msg2"></p>
+		</div>
+		
+		
+	    <!--v-bind 数据单向绑定-->
+		<input type="button" value="按钮" v-bind:title="mytitle " />
+		<!-- v-bind 数据单向绑定  缩写-->
+		<input type="button" value="爱你" :title="mytitle+'123'" />
+		
+		<!-- click点击事件  mousiver 鼠标悬停事件 -->
+		<!-- v-on可缩写为 @  -->
+		<input type="button" value="20"  v-on:click="show"/>
+		
+		<input type="button" value="20"  v-on:mouseover="show"/>
+		
+		</div>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					msg:'好好学习，莫要‘书到用时方恨少’',
+					msg2:'<h1>加油加油，我信你</h1>',
+					mytitle:'孩子你是最棒的！',
+				},
+				methods:{
+					show:function(){
+						alert('你好')
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

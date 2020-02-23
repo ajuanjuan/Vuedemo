@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+			<p v-for="item in list">{{item}}</p>
+			<p v-for="(item,i) in list">索引值：{{i}} 每一项：{{item}}</p>
+		</div>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					list:[1,2,3,4,5,6]
+				},
+			});
+		</script>
+	</body>
+</html>

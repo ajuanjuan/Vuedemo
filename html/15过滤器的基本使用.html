@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="../vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- <p>{{msg|msgFormat}}</p> -->
+			<!-- <p>{{msg|msgFormat('疯狂+1')}}</p> -->
+			<!-- <p>{{msg|msgFormat('疯狂+1','123')}}</p> -->
+			 <p>{{msg|msgFormat('疯狂+1','123')|test}}</p>
+		</div>
+		<script>
+			//定义一个Vue全局的过滤器，名字叫做msgFormat
+			/* 
+			//第一种filter写法
+			Vue.filter('msgFormat',function(msg){
+			// 字符串的replace方法，第一个参数，除了可以写一个字符串之外，还可以定义一个
+			// return	msg.replace('美','丑')
+			return	msg.replace(/美/g,'丑')
+			}) */
+			
+			//第二种filter写法
+			/* Vue.filter('msgFormat',function(msg,arg){
+			// 字符串的replace方法，第一个参数，除了可以写一个字符串之外，还可以定义一个
+			// return	msg.replace('美','丑')
+			return	msg.replace(/美/g,arg)
+			}) */
+			
+			//filter传递多个参数
+			 Vue.filter('msgFormat',function(msg,arg,arg2){
+			// 字符串的replace方法，第一个参数，除了可以写一个字符串之外，还可以定义一个
+			// return	msg.replace('美','丑')
+			return	msg.replace(/美/g,arg+arg2)
+			}) 
+			
+			//调用多个过滤器
+			Vue.filter('test',function(msg){
+				return msg+'====='
+			})
+			var vm=new Vue({
+				// 创建Vue实例，得到ViewMoel
+				el:'#app',
+				data:{
+					msg:'理想很丰满，现实很骨感；骨感是美也不是美，心灵美才是真的美',
+				},
+	 		})
+		</script>
+	</body>
+</html>

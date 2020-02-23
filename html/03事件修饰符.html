@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../vue.js" ></script>
+	</head>
+	<div id="app">
+		<!-- .capture添加事件监听器时，使用事件捕获事件 -->
+		<!--<div style="height:100px ;background-color: red;" @click.capture="out">-->
+		<div style="height:100px ;background-color: red;" @click="out">
+		<!-- .self 阻止自己的事件 -->
+			<div style=" width:100px;height: 100px;background-color: green;" @click.self="inhere">
+				<!-- .stop 阻止冒泡 -->
+			<!--	<input type="button"  value="2020" @click.stop="show" />-->
+			<!-- .once 事件只触发一次 -->
+				<input type="button"  value="2020" @click.once="show" />
+			</div>
+		</div>
+		
+		<!-- .prevent 阻止默认行为 -->
+		<a href="v-cloak.html" @click.prevent="linkClick">小姐姐你好</a>
+	</div>
+	
+	<script>
+		var vm=new Vue({
+			el:'#app',
+			data:{
+				msg:'你看那朵花真好看',
+			},
+			methods:{
+				out:function(){
+					console.log('这是外')
+				},
+				inhere:function(){
+					console.log('这是内')
+				},
+				show:function(){
+					alert('爱你哦')
+					
+				},
+				
+				linkClick:function(){
+					console.log('这是触发了链接事件')
+				
+				}
+			}
+		});
+	</script>
+	<body>
+	</body>
+</html>

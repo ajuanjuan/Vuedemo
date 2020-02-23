@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="button" value="叮咚" @click="yc" />
+			<!--<input type="button" value="叮咚" @click="flag=！flag" />-->
+			
+		<!-- v-if隐藏是移除操作 -->
+		<!-- v-show是display操作-->
+		<!--v-if有较高的切换性能-->
+		<!-- v-show有较高的初始渲染消耗-->
+		<!--如果需要来回切换隐藏，则使用v-show-->
+		<!-- 如果元素永远不被看到，则使用v-if-->
+			<p v-if="flag">这是第一次隐藏操作</p>
+		<p v-show="flag"> 这是第二次隐藏操作</p>
+		</div>
+		
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					flag:true,
+				},
+				methods:{
+					yc:function(){
+						this.flag=!this.flag;
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

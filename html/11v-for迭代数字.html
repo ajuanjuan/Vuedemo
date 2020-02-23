@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../vue.js" ></script>
+	</head>
+	<div id="app">
+		<!--  in 的后面可以跟普通数组，对象数组，对象还可以跟数字 -->
+		<!-- count循环是从1开始循环 -->
+		<p v-for="count in 10">第{{count}}次见面</p>
+	</div>
+	<script>
+		var vm=new Vue({
+			el:'#app',
+			data:{
+				
+			},
+		});
+	</script>
+	<body>
+	</body>
+</html>

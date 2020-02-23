@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+		<script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
+		
+		<!-- 注意：vue-resource 依赖于Vue，所以先后顺序要注意 -->
+		<!-- this.$http.jsonp(url,[option])  option可要可不要，.then后的成功函数一定要，失败的可要可不要
+		 .get(url,[option])
+		 .post(url,[body],[option])
+		 -->
+		<!-- <script type="text/javascript" src="../vue.js"></script> -->
+		<!-- <script type="text/javascript" src="../vue-resource-develop/dist/vue-resource.js"></script> -->
+	</head>
+	<body>
+		<div id="app">
+			<!-- <input type="button" value="get请求" @click="getInfo"/> -->
+			<input type="button" value="post请求" @click="postInfo"/>
+			<!-- <input type="button" value="jsonp请求" @click="jsonpInfo"/> -->
+			
+		</div>
+		<script>
+			window.onload=function(){
+				var vm=new Vue({
+					el:'#app',
+					data:{
+						
+					},
+					methods:{
+						// getInfo(){//发起get请求
+						// 	//当发起get请求后，通过.then来设置成功的回调函数
+						// 	this.$http.get('http://127.0.0.1:8848/Vuedemo/html/17vue-resource%E7%9A%84%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B.html',{emulateJSON:true}).then(function(result){
+						// 		console.log(result.body)
+						// 	})
+						// },
+						postInfo:function(){
+							            //发送 post 请求
+							            this.$http.post('/try/ajax/demo_test_post.php',{name:"菜鸟教程",url:"http://www.runoob.com"},{emulateJSON:true}).then(function(res){
+						                    document.write(res.body);    
+						                },function(res){
+						                    console.log(res.status);
+						                });
+							        },
+						// postInfo(){
+						// 	this.$http.post('http://vue.studyit.io/api/getprodlist',{},{emulateJSON:true}).then(function(result){
+						// 		console.log(result.body)
+						// 	})
+						// },
+						/* jsonpInfo(){
+								this.$http.jsonp('https://www.baidu.com/',{emulateJSON:true}).then(function(result){
+									console.log(result.body)
+								})
+							} */
+						
+					},
+					
+				});
+			}
+			
+		</script>
+	</body>
+</html>

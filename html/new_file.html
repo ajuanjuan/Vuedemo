@@ -1,0 +1,21 @@
+<html>
+<head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    $('#selectAll').click(function(){
+        $('input[type=checkbox]').attr('checked', $(this).attr('checked'));
+    });
+});
+</script>
+</head>
+<body>
+<input type="checkbox" id="selectAll" />全选
+<input type="checkbox" />
+<input type="checkbox" />
+<input type="checkbox" />
+<input type="checkbox" />
+<input type="checkbox" />
+<input type="checkbox" />
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../vue.js" ></script>
+		<style type="text/css">
+			.red{
+				color:red;
+			}
+			.thin{
+				font-weight: 200;
+			}
+			.italic{
+				font-style: italic;
+			}
+			.active{
+				letter-spacing: 0.5mm;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div id="app">
+			<h1 class="red thin">这是一个大大的h1，很大很大，大到你无法想象</h1>
+			<!--数组表达-->
+			<h1 :class="['red','thin','italic','active']">这是一个大大的h1，很大很大，大到你无法想象</h1>
+			 <!--三元表达式的方法，如果flag是true就用 italic样式，如果不是true就为空 -->
+		<!--	<h1 :class="['red','thin',flag?'italic':'']">这是一个大大的h1，很大很大，大到你无法想象</h1>-->
+			<!--把三元表达式改造成对象的方式-->
+			<!--<h1 :class="['red','thin',{'italic':flag}]">这是一个大大的h1，很大很大，大到你无法想象</h1>-->
+			<!--直接使用对象-->
+			<h1 :class="{red:true,thin:true,italic:true,active:true}">这是一个大大的h1，很大很大，大到你无法想象</h1>
+		    
+		</div>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					
+//					flag:true;
+				},
+				
+			});
+		</script>
+	</body>
+</html>
